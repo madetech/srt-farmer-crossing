@@ -11,7 +11,7 @@ class FarmerCrossing {
 
 }
 
-if (module && module.exports) {
+if (typeof module !== 'undefined' && module.exports) {
     module.exports = FarmerCrossing;
 } else {
     window.FarmerCrossing = FarmerCrossing;
