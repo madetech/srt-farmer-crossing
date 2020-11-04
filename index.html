@@ -4,41 +4,51 @@
     <title>FarmerCrossing</title>
     <meta charset="UTF-8" />
     <style type="text/css">
-      body {
-        font-family: Helvetica, Arial sans-serif;
-        background-color: #9fdf9f;
-        color: white;
-        padding: 0;
-        margin: 0;
-      }
+    body {
+      font-family:Helvetica, Arial sans-serif;
+      background-color:#53900f;
+      color:white;
+      padding:0;
+      margin:0;
+    }
 
-      h1 {
-        text-align: center;
-        padding: 0.5em;
-        font-size: 3em;
-        margin: 0;
-      }
+    h1 {
+      text-align:center;
+      padding:0.5em;
+      font-size:3em;
+      margin:0;
+      background-color:#1F6521;
+    }
 
-      input {
-        display: block;
-        margin: 2em auto 2em auto;
-        font-size: 2em;
-        text-align: center;
-        padding: 0.5em;
-        border: 1px solid yellow;
-      }
-
-      .submit {
-        background: #339933;
-      }
 
       .output-area {
         text-align: center;
       }
 
+	input {
+		display:block;
+		margin:1em auto 1em auto;
+		font-size:2em;
+		text-align:center;
+		padding:0.5em;
+		border:1px solid #1F2605;
+    border-radius:10px;
+
+	}
+
+  label {
+      display:none;
+    }
+
+	.submit {
+		background:#D6CE15;
+    border-radius:10px;
+    color:#1F6521;
+	}
+
       .output-area p {
         font-size: 5em;
-        color: #206020;
+        color:white;
       }
     </style>
   </head>
@@ -65,25 +75,24 @@
       <p id="output"></p>
     </div>
     <script src="./index.js"></script>
+    <script src="./index.js"></script>
     <script>
-      const form = document.querySelector("form");
-      const input = document.querySelector("#num_bags");
-      const output = document.querySelector("#output");
+    	const form = document.querySelector('form')
+    	const input = document.querySelector('#num_bags')
+    	const output = document.querySelector('#output')
 
-      form.onsubmit = function (e) {
-        e.preventDefault();
+    	form.onsubmit = function (e) {
+    		e.preventDefault()
 
-        const calculator = new window.FarmerCrossing();
-        const value = input.value;
-        const result = calculator.calculatePriceOfCrossing(value);
-        const formatter = new Intl.NumberFormat("en-GB", {
-          style: "currency",
-          currency: "GBP",
-        });
+    		const calculator = new window.FarmerCrossing()
+    		const value = input.value
+    		const result = calculator.calculatePriceOfCrossing(parseInt(value))
+    		const formatter = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' })
 
-        const price = formatter.format(result / 100);
-        output.innerHTML = price;
-      };
+    		const price = formatter.format(result / 100)
+    		output.innerHTML = price
+    	}
     </script>
   </body>
+
 </html>
