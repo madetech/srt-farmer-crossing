@@ -11,10 +11,16 @@ describe('FarmerCrossing', () => {
         expect(instance).toBeInstanceOf(FarmerCrossing)
     })
 
-    it('when there is one bag of corn the price is 0p', () => {
+    it('when there are no bags of corn the price is 25p', () => {
         const totalPrice = instance.calculatePriceOfCrossing(0);
 
-        expect(totalPrice).toEqual(0);
+        expect(totalPrice).toEqual(25);
+    })
+
+    it('when there is one bag of corn the price is 25p', () => {
+        const totalPrice = instance.calculatePriceOfCrossing(1);
+
+        expect(totalPrice).toEqual(25);
     })
 
     it('when there are 2 bags of corn the price is 75p', () => {      
@@ -27,5 +33,24 @@ describe('FarmerCrossing', () => {
         const totalPrice = instance.calculatePriceOfCrossing(100);
         
         expect(totalPrice).toEqual(4975);
+    })
+
+    it('when number in a string is provided the calculation works', () => {
+        const getTotalPrice = () => instance.calculatePriceOfCrossing('5');
+
+        expect(getTotalPrice).not.toThrowError("Invalid input")
+        expect(getTotalPrice()).toEqual(225)
+    })
+
+    it('when a negative number is provided an error is thrown', () => {
+        const getTotalPrice = () => instance.calculatePriceOfCrossing(-1);
+
+        expect(getTotalPrice).toThrowError("Invalid input")
+    })
+
+    it('when invalid input is provided an error is thrown', () => {
+        const getTotalPrice = () => instance.calculatePriceOfCrossing('invalid');
+
+        expect(getTotalPrice).toThrowError("Invalid input")
     })
 })

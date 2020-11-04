@@ -49,7 +49,7 @@
 <body>
 <h1>👩‍🌾 - Farmer Crossing - 👨‍🌾</h1>
 <form class="form" id="form">
-	<input type="number" id="num_bags" name="num_bags" placeholder="Enter number of bags"  min="1" step="1"/> 
+	<input type="number" id="num_bags" name="num_bags" placeholder="Enter number of bags"  min="0" step="1"/> 
 	<input type="submit" id="submit" name="submit" class="submit" value="Calculate price"/> 
 </form>
 <div class="output-area">
@@ -66,7 +66,7 @@
 
 		const calculator = new window.FarmerCrossing()
 		const value = input.value
-		const result = calculator.calculatePriceOfCrossing(parseInt(value))
+		const result = calculator.calculatePriceOfCrossing(value)
 		const formatter = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' })
 
 		const price = formatter.format(result / 100)
