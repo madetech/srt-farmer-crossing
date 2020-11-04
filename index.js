@@ -1,7 +1,12 @@
 class FarmerCrossing {
-
     calculatePriceOfCrossing(bagsOfCorn) {
-        return 0;
+        if (bagsOfCorn === 0) {
+            return 0;
+        }
+
+        const numberOfTrips = bagsOfCorn * 2 - 1;
+
+        return numberOfTrips * 25;
     }
 
 }
