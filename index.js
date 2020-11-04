@@ -1,9 +1,13 @@
 class FarmerCrossing {
 
+    calculatePriceOfCrossing(bagsOfCorn) {
+        return 0;
+    }
+
 }
 
 if (module && module.exports) {
     module.exports = FarmerCrossing;
-  } else {
+} else {
     window.FarmerCrossing = FarmerCrossing;
-  }
+}
