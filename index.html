@@ -1,12 +1,12 @@
 <!DOCTYPE HTML>
-<html lang = "en">
+<html lang="en">
 <head>
   <title>FarmerCrossing</title>
   <meta charset = "UTF-8" />
   <style type="text/css">
-	body { 
+	body {
 		font-family:Helvetica, Arial sans-serif;
-		background-color:#9fdf9f;
+		background-color:#53900f;
 		color:white;
 		padding:0;
 		margin:0;
@@ -17,22 +17,29 @@
 		padding:0.5em;
 		font-size:3em;
 		margin:0;
+    background-color:#1F6521;
 	}
 
 
 	input {
 		display:block;
-		margin:2em auto 2em auto;
+		margin:1em auto 1em auto;
 		font-size:2em;
 		text-align:center;
 		padding:0.5em;
-		border:1px solid yellow;
-		
-		
+		border:1px solid #1F2605;
+    border-radius:10px;
+
 	}
 
+  label {
+      display:none;
+    }
+
 	.submit {
-		background:#339933;
+		background:#D6CE15;
+    border-radius:10px;
+    color:#1F6521;
 	}
 
 	.output-area {
@@ -44,17 +51,35 @@
 		font-size:5em;
 		color:#206020;
 	}
+
+  footer {
+    background-color:#1F6521;
+    text-align:center;
+    padding:5px;
+    position: fixed;
+    bottom: 0;
+    width:100%;
+  }
+
   </style>
 </head>
 <body>
+<header>
 <h1>👩‍🌾 - Farmer Crossing - 👨‍🌾</h1>
+</header>
+<main>
 <form class="form" id="form">
-	<input type="number" id="num_bags" name="num_bags" placeholder="Enter number of bags"  min="1" step="1"/> 
-	<input type="submit" id="submit" name="submit" class="submit" value="Calculate price"/> 
+  <label for="num_bags">Enter number of bags</label>
+	<input type="number" id="num_bags" name="num_bags" placeholder="Enter number of bags"  min="1" step="1"/>
+	<input type="submit" id="submit" name="submit" class="submit" value="Calculate price ➡"/>
 </form>
 <div class="output-area">
 	<p id="output"></p>
 </div>
+</main>
+<footer>
+  © 2020 Mr Farmer
+</footer>
 <script src="./index.js"></script>
 <script>
 	const form = document.querySelector('form')
