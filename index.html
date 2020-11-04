@@ -1,77 +1,89 @@
-<!DOCTYPE HTML>
-<html lang = "en">
-<head>
-  <title>FarmerCrossing</title>
-  <meta charset = "UTF-8" />
-  <style type="text/css">
-	body { 
-		font-family:Helvetica, Arial sans-serif;
-		background-color:#9fdf9f;
-		color:white;
-		padding:0;
-		margin:0;
-	}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FarmerCrossing</title>
+    <meta charset="UTF-8" />
+    <style type="text/css">
+      body {
+        font-family: Helvetica, Arial sans-serif;
+        background-color: #9fdf9f;
+        color: white;
+        padding: 0;
+        margin: 0;
+      }
 
-	h1 {
-		text-align:center;
-		padding:0.5em;
-		font-size:3em;
-		margin:0;
-	}
+      h1 {
+        text-align: center;
+        padding: 0.5em;
+        font-size: 3em;
+        margin: 0;
+      }
 
+      input {
+        display: block;
+        margin: 2em auto 2em auto;
+        font-size: 2em;
+        text-align: center;
+        padding: 0.5em;
+        border: 1px solid yellow;
+      }
 
-	input {
-		display:block;
-		margin:2em auto 2em auto;
-		font-size:2em;
-		text-align:center;
-		padding:0.5em;
-		border:1px solid yellow;
-		
-		
-	}
+      .submit {
+        background: #339933;
+      }
 
-	.submit {
-		background:#339933;
-	}
+      .output-area {
+        text-align: center;
+      }
 
-	.output-area {
-		text-align:center;
+      .output-area p {
+        font-size: 5em;
+        color: #206020;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>👩‍🌾 - Farmer Crossing - 👨‍🌾</h1>
+    <form class="form" id="form">
+      <input
+        type="number"
+        id="num_bags"
+        name="num_bags"
+        placeholder="Enter number of bags"
+        min="0"
+        step="1"
+      />
+      <input
+        type="submit"
+        id="submit"
+        name="submit"
+        class="submit"
+        value="Calculate price"
+      />
+    </form>
+    <div class="output-area">
+      <p id="output"></p>
+    </div>
+    <script src="./index.js"></script>
+    <script>
+      const form = document.querySelector("form");
+      const input = document.querySelector("#num_bags");
+      const output = document.querySelector("#output");
 
-	}
+      form.onsubmit = function (e) {
+        e.preventDefault();
 
-	.output-area p {
-		font-size:5em;
-		color:#206020;
-	}
-  </style>
-</head>
-<body>
-<h1>👩‍🌾 - Farmer Crossing - 👨‍🌾</h1>
-<form class="form" id="form">
-	<input type="number" id="num_bags" name="num_bags" placeholder="Enter number of bags"  min="0" step="1"/> 
-	<input type="submit" id="submit" name="submit" class="submit" value="Calculate price"/> 
-</form>
-<div class="output-area">
-	<p id="output"></p>
-</div>
-<script src="./index.js"></script>
-<script>
-	const form = document.querySelector('form')
-	const input = document.querySelector('#num_bags')
-	const output = document.querySelector('#output')
+        const calculator = new window.FarmerCrossing();
+        const value = input.value;
+        const result = calculator.calculatePriceOfCrossing(value);
+        const formatter = new Intl.NumberFormat("en-GB", {
+          style: "currency",
+          currency: "GBP",
+        });
 
-	form.onsubmit = function (e) {
-		e.preventDefault()
-
-		const calculator = new window.FarmerCrossing()
-		const value = input.value
-		const result = calculator.calculatePriceOfCrossing(value)
-		const formatter = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' })
-
-		const price = formatter.format(result / 100)
-		output.innerHTML = price
-	}
-</script>
-</body>
+        const price = formatter.format(result / 100);
+        output.innerHTML = price;
+      };
+    </script>
+  </body>
 </html>
