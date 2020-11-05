@@ -26,12 +26,12 @@ export class FarmerCrossing {
       throw new Error("Invalid input");
     }
 
-    return parsed
+    return parsed;
   }
 
   calculateCrossingPlanForCornAndGeese({ corn: rawCorn, geese: rawGeese }) {
-    const geese = this.parseNumber(rawGeese)
-    const corn = this.parseNumber(rawCorn)
+    const geese = this.parseNumber(rawGeese);
+    const corn = this.parseNumber(rawCorn);
 
     if (geese >= 2 && corn >= 2) {
       return [];
@@ -43,13 +43,17 @@ export class FarmerCrossing {
       return this.getPlanForOneAndZero("corn", "geese");
     } else if (corn === 0 && geese === 1) {
       return this.getPlanForOneAndZero("geese", "corn");
+    } else if (corn === 0 && geese === 2) {
+      return this.getPlanForTwoAndZero("geese", "corn");
     } else if (corn === 1 && geese === 1) {
       return this.getPlanForOneAndOne();
     } else if (corn === 2 && geese === 1) {
-      return this.getPlanForTwoAndOne('corn', 'geese')
+      return this.getPlanForTwoAndOne("corn", "geese");
     } else if (corn === 1 && geese === 2) {
-      return this.getPlanForTwoAndOne('geese', 'corn')
+      return this.getPlanForTwoAndOne("geese", "corn");
     }
+
+    return [];
   }
 
   getInitialState(
@@ -70,38 +74,47 @@ export class FarmerCrossing {
   }
 
   getPlanForZeroAndZero() {
-    const plan = new Plan("corn", 0, "geese", 0)
-    plan.moveAcross('market')
-    
-    return plan.getState()
+    const plan = new Plan("corn", 0, "geese", 0);
+    plan.moveAcross("market");
+
+    return plan.getState();
   }
 
   getPlanForOneAndZero(firstResourceName, secondResourceName) {
-    const plan = new Plan(firstResourceName, 1, secondResourceName, 0)
-    plan.moveAcross('market', firstResourceName)
+    const plan = new Plan(firstResourceName, 1, secondResourceName, 0);
+    plan.moveAcross("market", firstResourceName);
 
-    return plan.getState()
+    return plan.getState();
+  }
+
+  getPlanForTwoAndZero(firstResourceName, secondResourceName) {
+    const plan = new Plan(firstResourceName, 2, secondResourceName, 0);
+    plan.moveAcross("market", firstResourceName);
+    plan.moveAcross("farm");
+    plan.moveAcross("market", firstResourceName);
+
+    return plan.getState();
   }
 
   getPlanForOneAndOne() {
-    const plan = new Plan("corn", 1, "geese", 1)
-    plan.moveAcross('market', "corn")
-    plan.moveAcross('farm')
-    plan.moveAcross('market', "geese")
-    
-    return plan.getState()
+    const plan = new Plan("corn", 1, "geese", 1);
+    plan.moveAcross("market", "corn");
+    plan.moveAcross("farm");
+    plan.moveAcross("market", "geese");
+
+    return plan.getState();
   }
 
   getPlanForTwoAndOne(firstResourceName, secondResourceName) {
-    const plan = new Plan(firstResourceName, 2, secondResourceName, 1)
-    plan.moveAcross('market', secondResourceName)
-    plan.moveAcross('farm')
-    plan.moveAcross('market', firstResourceName)
-    plan.moveAcross('farm', secondResourceName)
-    plan.moveAcross('market', firstResourceName)
-    plan.moveAcross('farm')
-    plan.moveAcross('market', secondResourceName)
+    const plan = new Plan(firstResourceName, 2, secondResourceName, 1);
+    plan.moveAcross("market", secondResourceName);
+    plan.moveAcross("farm");
+    plan.moveAcross("market", firstResourceName);
+    plan.moveAcross("farm", secondResourceName);
+    plan.moveAcross("market", firstResourceName);
+    plan.moveAcross("farm");
+    plan.moveAcross("market", secondResourceName);
 
-    return plan.getState()
+    return plan.getState();
   }
 }
