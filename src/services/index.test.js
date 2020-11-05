@@ -1,4 +1,4 @@
-const FarmerCrossing = require("./");
+import { FarmerCrossing } from './index'
 
 describe("FarmerCrossing", () => {
   let instance;
