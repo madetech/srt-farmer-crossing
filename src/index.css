@@ -55,6 +55,12 @@ label {
   color: white;
 }
 
+.price {
+  font-size: 3em;
+  text-align: center;
+  clear: both;
+}
+
 footer {
   background-color: #1f6521;
   text-align: center;

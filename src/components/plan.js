@@ -23,7 +23,11 @@ const PlanStep = ({ step }) => {
         {printSymbol(step.farm.geese, "🦆")} {printSymbol(step.farm.corn, "🌽")}
       </span>
       <span className="river">
-        {step.boat.direction === "farm" ? <span className="direction">←</span> : ""}{" "}
+        {step.boat.direction === "farm" ? (
+          <span className="direction">←</span>
+        ) : (
+          ""
+        )}{" "}
         {printSymbol(step.boat.farmer, "👨‍🌾")}{" "}
         {printSymbol(step.boat.geese, "🦆")} {printSymbol(step.boat.corn, "🌽")}{" "}
         {step.boat.direction === "market" ? (
@@ -70,11 +74,13 @@ export const Plan = ({ data: { corn, geese } }) => {
   if (!plan) return null;
   if (plan.length === 0) return <p className="error"> Not possible! </p>;
   return (
-    <div className="plan">
+    <>
       <div className="price">Total cost: {formattedCost}</div>{" "}
-      {plan.map((step, i) => (
-        <PlanStep key={`${corn}-${geese}-${i}`} step={step} />
-      ))}
-    </div>
+      <div className="plan">
+        {plan.map((step, i) => (
+          <PlanStep key={`${corn}-${geese}-${i}`} step={step} />
+        ))}
+      </div>
+    </>
   );
 };
