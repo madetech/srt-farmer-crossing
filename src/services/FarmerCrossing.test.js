@@ -402,6 +402,53 @@ describe("FarmerCrossing", () => {
       expect(crossingPlan).toEqual(plan);
     });
 
+    it("when transporting two corn and zero geese the successful plan is returned", () => {
+      const crossingPlan = instance.calculateCrossingPlanForCornAndGeese({
+        corn: 2,
+        geese: 0,
+      });
+
+      const plan = [
+        {
+          farm: { corn: 2, geese: 0, farmer: 1 },
+          boat: { corn: 0, geese: 0, farmer: 0, direction: "none" },
+          market: { corn: 0, geese: 0, farmer: 0 },
+        },
+        {
+          farm: { corn: 1, geese: 0, farmer: 0 },
+          boat: { corn: 1, geese: 0, farmer: 1, direction: "market" },
+          market: { corn: 0, geese: 0, farmer: 0 },
+        },
+        {
+          farm: { corn: 1, geese: 0, farmer: 0 },
+          boat: { corn: 0, geese: 0, farmer: 0, direction: "none" },
+          market: { corn: 1, geese: 0, farmer: 1 },
+        },
+        {
+          farm: { corn: 1, geese: 0, farmer: 0 },
+          boat: { corn: 0, geese: 0, farmer: 1, direction: "farm" },
+          market: { corn: 1, geese: 0, farmer: 0 },
+        },
+        {
+          farm: { corn: 1, geese: 0, farmer: 1 },
+          boat: { corn: 0, geese: 0, farmer: 0, direction: "none" },
+          market: { corn: 1, geese: 0, farmer: 0 },
+        },
+        {
+          farm: { corn: 0, geese: 0, farmer: 0 },
+          boat: { corn: 1, geese: 0, farmer: 1, direction: "market" },
+          market: { corn: 1, geese: 0, farmer: 0 },
+        },
+        {
+          farm: { corn: 0, geese: 0, farmer: 0 },
+          boat: { corn: 0, geese: 0, farmer: 0, direction: "none" },
+          market: { corn: 2, geese: 0, farmer: 1 },
+        },
+      ];
+
+      expect(crossingPlan).toEqual(plan);
+    });
+
     it("when transporting more than one corn and one goose an unsuccessful plan is returned", () => {
       const crossingPlan = instance.calculateCrossingPlanForCornAndGeese({
         corn: 2,
