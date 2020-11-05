@@ -1,92 +1,124 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-    body {
-      font-family:Helvetica, Arial sans-serif;
-      background-color:#53900f;
-      color:white;
-      padding:0;
-      margin:0 0 30px;
-    }
+body {
+    font-family: Helvetica, Arial sans-serif;
+    background-color: #53900f;
+    color: white;
+    padding: 0;
+    margin: 0 0 30px;
+}
 
-    h1 {
-      text-align:center;
-      padding:0.5em;
-      font-size:3em;
-      margin:0;
-      background-color:#1F6521;
-    }
+h1 {
+    text-align: center;
+    padding: 0.5em;
+    font-size: 3em;
+    margin: 0;
+    background-color: #1F6521;
+}
 
+.output-area {
+    text-align: center;
+}
 
-      .output-area {
-        text-align: center;
-      }
+input {
+    display: block;
+    margin: 0 auto 1em auto;
+    font-size: 2em;
+    text-align: center;
+    padding: 0.5em;
+    border: 1px solid #1F2605;
+    border-radius: 10px;
+}
 
-	input {
-		display:block;
-		margin: 0 auto 1em auto;
-		font-size:2em;
-		text-align:center;
-		padding:0.5em;
-		border:1px solid #1F2605;
-    border-radius:10px;
+label {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+}
 
-	}
+.submit {
+    background: #D6CE15;
+    border-radius: 10px;
+    color: #1F6521;
+}
 
-  label {
-		display: block;
-		margin-top: 30px;
-		text-align: center;
-	}
+.output-area p {
+    font-size: 5em;
+    color: white;
+}
 
-	.submit {
-		background:#D6CE15;
-    border-radius:10px;
-    color:#1F6521;
-	}
+footer {
+    background-color: #1F6521;
+    text-align: center;
+    padding: 5px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
 
-      .output-area p {
-        font-size: 5em;
-        color:white;
-      }
+.plan {
+    display: table;
+    width: 100%;
+}
 
-      footer {
-        background-color:#1F6521;
-        text-align:center;
-        padding:5px;
-        position: fixed;
-        bottom: 0;
-        width:100%;
-      }
-
-  .step {
-    display:block;
+.step {
+    display: table-row;
     margin-bottom: 10px;
-  }
+}
 
-  .river, .farm, .market {
-        display: inline-block;
-        min-width: 40px;
-        margin: 0 20px;
-        height:40px;
-        padding:10px;
-        vertical-align:middle;
+.river,
+.farm,
+.market {
+    display: table-cell;
+    margin: 0 20px;
+    height: 40px;
+    padding: 10px;
+    vertical-align: middle;
+    text-align: left;
+}
 
-      }
-      
+.farm {
+    text-align: right;
+}
 
-	.river {
-		background-color: blue;
-  }
-  
-  .sprite {
-    display:inline-block;
-    font-size:40px;
-    line-height:40px;
-  }
+.river {
+    background-color: blue;
+    min-width: 120px;
+    text-align: center;
+}
+
+.market {
+    text-align: left;
+}
+
+.sprite {
+    font-size: 40px;
+    line-height: 40px;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.spriteContents {
+    position: relative;
+}
+
+.spriteNumber {
+    position: relative;
+    font-size: 14px;
+    font-weight: bold;
+    background: red;
+    display: inline-block;
+    line-height: 20px;
+    height: 20px;
+    min-width: 20px;
+    border-radius: 5px;
+    border: 1px solid white;
+    top: 5px;
+    left: -5px;
+    text-align: center;
+}
