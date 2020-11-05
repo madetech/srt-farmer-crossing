@@ -31,6 +31,10 @@ export class FarmerCrossing {
       return this.getPlanForOneAndZero("geese", "corn");
     } else if (corn === 1 && geese === 1) {
       return this.getPlanForOneAndOne();
+    } else if (corn === 2 && geese === 1) {
+      return this.getPlanForTwoAndOne('corn', 'geese')
+    } else if (corn === 1 && geese === 2) {
+      return this.getPlanForTwoAndOne('geese', 'corn')
     }
   }
 
@@ -41,137 +45,115 @@ export class FarmerCrossing {
     secondResourceCount
   ) {
     return {
-      left: {
+      farm: {
         [firstResourceName]: firstResourceCount,
         [secondResourceName]: secondResourceCount,
         farmer: 1,
       },
       boat: { geese: 0, corn: 0, farmer: 0, direction: "none" },
-      right: { geese: 0, corn: 0, farmer: 0 },
+      market: { geese: 0, corn: 0, farmer: 0 },
     };
   }
 
   getPlanForZeroAndZero() {
-    const firstResourceName = "geese";
-    const secondResourceName = "corn";
-
-    return [
-      this.getInitialState(firstResourceName, secondResourceName, 0, 0),
-      {
-        left: { [firstResourceName]: 0, [secondResourceName]: 0, farmer: 0 },
-        boat: {
-          [firstResourceName]: 0,
-          [secondResourceName]: 0,
-          farmer: 1,
-          direction: "market",
-        },
-        right: { [firstResourceName]: 0, [secondResourceName]: 0, farmer: 0 },
-      },
-      {
-        left: { [firstResourceName]: 0, [secondResourceName]: 0, farmer: 0 },
-        boat: {
-          [firstResourceName]: 0,
-          [secondResourceName]: 0,
-          farmer: 0,
-          direction: "none",
-        },
-        right: { [firstResourceName]: 0, [secondResourceName]: 0, farmer: 1 },
-      },
-    ];
+    const plan = new Plan("corn", 0, "geese", 0)
+    plan.moveAcross('market')
+    
+    return plan.getState()
   }
 
   getPlanForOneAndZero(firstResourceName, secondResourceName) {
-    return [
-      this.getInitialState(firstResourceName, secondResourceName, 1, 0),
-      {
-        left: { [firstResourceName]: 0, [secondResourceName]: 0, farmer: 0 },
-        boat: {
-          [firstResourceName]: 1,
-          [secondResourceName]: 0,
-          farmer: 1,
-          direction: "market",
-        },
-        right: { [firstResourceName]: 0, [secondResourceName]: 0, farmer: 0 },
-      },
-      {
-        left: { [firstResourceName]: 0, [secondResourceName]: 0, farmer: 0 },
-        boat: {
-          [firstResourceName]: 0,
-          [secondResourceName]: 0,
-          farmer: 0,
-          direction: "none",
-        },
-        right: { [firstResourceName]: 1, [secondResourceName]: 0, farmer: 1 },
-      },
-    ];
+    const plan = new Plan(firstResourceName, 1, secondResourceName, 0)
+    plan.moveAcross('market', firstResourceName)
+
+    return plan.getState()
   }
 
   getPlanForOneAndOne() {
-    const firstResourceName = "corn";
-    const secondResourceName = "geese";
+    const plan = new Plan("corn", 1, "geese", 1)
+    plan.moveAcross('market', "corn")
+    plan.moveAcross('farm')
+    plan.moveAcross('market', "geese")
+    
+    return plan.getState()
+  }
 
-    return [
-      this.getInitialState(firstResourceName, secondResourceName, 1, 1),
-      {
-        left: { [firstResourceName]: 0, [secondResourceName]: 1, farmer: 0 },
-        boat: {
-          [firstResourceName]: 1,
-          [secondResourceName]: 0,
-          farmer: 1,
-          direction: "market",
-        },
-        right: { [firstResourceName]: 0, [secondResourceName]: 0, farmer: 0 },
+  getPlanForTwoAndOne(firstResourceName, secondResourceName) {
+    const plan = new Plan(firstResourceName, 2, secondResourceName, 1)
+    plan.moveAcross('market', secondResourceName)
+    plan.moveAcross('farm')
+    plan.moveAcross('market', firstResourceName)
+    plan.moveAcross('farm', secondResourceName)
+    plan.moveAcross('market', firstResourceName)
+    plan.moveAcross('farm')
+    plan.moveAcross('market', secondResourceName)
+
+    return plan.getState()
+  }
+}
+
+class Plan {
+  constructor(firstResourceName, firstResourceCount, secondResourceName, secondResourceCount) {
+    this.firstResourceName = firstResourceName
+    this.firstResourceCount = firstResourceCount
+    this.secondResourceName = secondResourceName
+    this.secondResourceCount = secondResourceCount
+
+    this.plan = [this.getInitialState()]
+  }
+
+  getState() {
+    return this.plan
+  }
+
+  getInitialState() {
+    return {
+      farm: {
+        [this.firstResourceName]: this.firstResourceCount,
+        [this.secondResourceName]: this.secondResourceCount,
+        farmer: 1,
       },
-      {
-        left: { [firstResourceName]: 0, [secondResourceName]: 1, farmer: 0 },
-        boat: {
-          [firstResourceName]: 0,
-          [secondResourceName]: 0,
-          farmer: 0,
-          direction: "none",
-        },
-        right: { [firstResourceName]: 1, [secondResourceName]: 0, farmer: 1 },
-      },
-      {
-        left: { [firstResourceName]: 0, [secondResourceName]: 1, farmer: 0 },
-        boat: {
-          [firstResourceName]: 0,
-          [secondResourceName]: 0,
-          farmer: 1,
-          direction: "farm",
-        },
-        right: { [firstResourceName]: 1, [secondResourceName]: 0, farmer: 0 },
-      },
-      {
-        left: { [firstResourceName]: 0, [secondResourceName]: 1, farmer: 1 },
-        boat: {
-          [firstResourceName]: 0,
-          [secondResourceName]: 0,
-          farmer: 0,
-          direction: "none",
-        },
-        right: { [firstResourceName]: 1, [secondResourceName]: 0, farmer: 0 },
-      },
-      {
-        left: { [firstResourceName]: 0, [secondResourceName]: 0, farmer: 0 },
-        boat: {
-          [firstResourceName]: 0,
-          [secondResourceName]: 1,
-          farmer: 1,
-          direction: "market",
-        },
-        right: { [firstResourceName]: 1, [secondResourceName]: 0, farmer: 0 },
-      },
-      {
-        left: { [firstResourceName]: 0, [secondResourceName]: 0, farmer: 0 },
-        boat: {
-          [firstResourceName]: 0,
-          [secondResourceName]: 0,
-          farmer: 0,
-          direction: "none",
-        },
-        right: { [firstResourceName]: 1, [secondResourceName]: 1, farmer: 1 },
-      },
-    ];
+      boat: { geese: 0, corn: 0, farmer: 0, direction: "none" },
+      market: { geese: 0, corn: 0, farmer: 0 },
+    };
+  }
+
+  moveAcross(direction, resource) {
+    const start = (direction === 'farm') ? 'market' : 'farm'
+    const end = (start === 'market') ? 'farm' : 'market'
+    const lastState = this.plan[this.plan.length - 1]
+    const middleState = JSON.parse(JSON.stringify(lastState))
+    
+    if (resource) this.moveResourceIntoBoat(middleState, resource, start)
+    this.moveFarmerIntoBoat(middleState, start, direction)
+    
+    const endState = JSON.parse(JSON.stringify(middleState))
+    
+    if (resource) this.moveResourceOutOfBoat(endState, resource, end)
+    this.moveFarmerOutOfBoat(endState, end)
+    
+    this.plan.push(middleState, endState)
+  }
+
+  moveResourceIntoBoat(state, resource, fromLocation) {
+    state[fromLocation][resource] = state[fromLocation][resource] - 1
+    state.boat[resource] = state.boat[resource] + 1
+  }
+
+  moveFarmerIntoBoat(state, fromLocation, direction) {
+    state[fromLocation].farmer = 0
+    state.boat.farmer = 1
+    state.boat.direction = direction
+  }
+
+  moveResourceOutOfBoat(state, resource, toLocation) {
+    state.boat[resource] = state.boat[resource] - 1
+    state[toLocation][resource] = state[toLocation][resource] + 1
+  }
+
+  moveFarmerOutOfBoat(state, toLocation) {
+    state[toLocation].farmer = 1
+    state.boat.farmer = 0
+    state.boat.direction = "none"
   }
 }

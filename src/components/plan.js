@@ -6,17 +6,17 @@ const printSymbol = (num, symbol) => Array(num).fill(symbol);
 const PlanStep = ({ step }) => {
   return (
     <div className="step">
-      {printSymbol(step.left.farmer, "👨‍🌾")}
-      {printSymbol(step.left.geese, "🦆")}
-      {printSymbol(step.left.corn, "🌽")}
+      {printSymbol(step.farm.farmer, "👨‍🌾")}
+      {printSymbol(step.farm.geese, "🦆")}
+      {printSymbol(step.farm.corn, "🌽")}
       <span className="river">
         {printSymbol(step.boat.farmer, "👨‍🌾")}
         {printSymbol(step.boat.geese, "🦆")}
         {printSymbol(step.boat.corn, "🌽")}
       </span>
-      {printSymbol(step.right.farmer, "👨‍🌾")}
-      {printSymbol(step.right.geese, "🦆")}
-      {printSymbol(step.right.corn, "🌽")}
+      {printSymbol(step.market.farmer, "👨‍🌾")}
+      {printSymbol(step.market.geese, "🦆")}
+      {printSymbol(step.market.corn, "🌽")}
     </div>
   );
 };

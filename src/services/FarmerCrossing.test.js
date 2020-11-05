@@ -61,19 +61,19 @@ describe("FarmerCrossing", () => {
 
       const plan = [
         {
-          left: { geese: 0, corn: 0, farmer: 1 },
+          farm: { geese: 0, corn: 0, farmer: 1 },
           boat: { geese: 0, corn: 0, farmer: 0, direction: "none" },
-          right: { geese: 0, corn: 0, farmer: 0 },
+          market: { geese: 0, corn: 0, farmer: 0 },
         },
         {
-          left: { geese: 0, corn: 0, farmer: 0 },
+          farm: { geese: 0, corn: 0, farmer: 0 },
           boat: { geese: 0, corn: 0, farmer: 1, direction: "market" },
-          right: { geese: 0, corn: 0, farmer: 0 },
+          market: { geese: 0, corn: 0, farmer: 0 },
         },
         {
-          left: { geese: 0, corn: 0, farmer: 0 },
+          farm: { geese: 0, corn: 0, farmer: 0 },
           boat: { geese: 0, corn: 0, farmer: 0, direction: "none" },
-          right: { geese: 0, corn: 0, farmer: 1 },
+          market: { geese: 0, corn: 0, farmer: 1 },
         },
       ];
 
@@ -88,19 +88,19 @@ describe("FarmerCrossing", () => {
 
       const plan = [
         {
-          left: { geese: 0, corn: 1, farmer: 1 },
+          farm: { geese: 0, corn: 1, farmer: 1 },
           boat: { geese: 0, corn: 0, farmer: 0, direction: "none" },
-          right: { geese: 0, corn: 0, farmer: 0 },
+          market: { geese: 0, corn: 0, farmer: 0 },
         },
         {
-          left: { geese: 0, corn: 0, farmer: 0 },
+          farm: { geese: 0, corn: 0, farmer: 0 },
           boat: { geese: 0, corn: 1, farmer: 1, direction: "market" },
-          right: { geese: 0, corn: 0, farmer: 0 },
+          market: { geese: 0, corn: 0, farmer: 0 },
         },
         {
-          left: { geese: 0, corn: 0, farmer: 0 },
+          farm: { geese: 0, corn: 0, farmer: 0 },
           boat: { geese: 0, corn: 0, farmer: 0, direction: "none" },
-          right: { geese: 0, corn: 1, farmer: 1 },
+          market: { geese: 0, corn: 1, farmer: 1 },
         },
       ];
 
@@ -115,19 +115,19 @@ describe("FarmerCrossing", () => {
 
       const plan = [
         {
-          left: { geese: 1, corn: 0, farmer: 1 },
+          farm: { geese: 1, corn: 0, farmer: 1 },
           boat: { geese: 0, corn: 0, farmer: 0, direction: "none" },
-          right: { geese: 0, corn: 0, farmer: 0 },
+          market: { geese: 0, corn: 0, farmer: 0 },
         },
         {
-          left: { geese: 0, corn: 0, farmer: 0 },
+          farm: { geese: 0, corn: 0, farmer: 0 },
           boat: { geese: 1, corn: 0, farmer: 1, direction: "market" },
-          right: { geese: 0, corn: 0, farmer: 0 },
+          market: { geese: 0, corn: 0, farmer: 0 },
         },
         {
-          left: { geese: 0, corn: 0, farmer: 0 },
+          farm: { geese: 0, corn: 0, farmer: 0 },
           boat: { geese: 0, corn: 0, farmer: 0, direction: "none" },
-          right: { geese: 1, corn: 0, farmer: 1 },
+          market: { geese: 1, corn: 0, farmer: 1 },
         },
       ];
 
@@ -142,44 +142,219 @@ describe("FarmerCrossing", () => {
 
       const plan = [
         {
-          left: { geese: 1, corn: 1, farmer: 1 },
+          farm: { geese: 1, corn: 1, farmer: 1 },
           boat: { geese: 0, corn: 0, farmer: 0, direction: "none" },
-          right: { geese: 0, corn: 0, farmer: 0 },
+          market: { geese: 0, corn: 0, farmer: 0 },
         },
         {
-          left: { geese: 1, corn: 0, farmer: 0 },
+          farm: { geese: 1, corn: 0, farmer: 0 },
           boat: { geese: 0, corn: 1, farmer: 1, direction: "market" },
-          right: { geese: 0, corn: 0, farmer: 0 },
+          market: { geese: 0, corn: 0, farmer: 0 },
         },
         {
-          left: { geese: 1, corn: 0, farmer: 0 },
+          farm: { geese: 1, corn: 0, farmer: 0 },
           boat: { geese: 0, corn: 0, farmer: 0, direction: "none" },
-          right: { geese: 0, corn: 1, farmer: 1 },
+          market: { geese: 0, corn: 1, farmer: 1 },
         },
         {
-          left: { geese: 1, corn: 0, farmer: 0 },
+          farm: { geese: 1, corn: 0, farmer: 0 },
           boat: { geese: 0, corn: 0, farmer: 1, direction: "farm" },
-          right: { geese: 0, corn: 1, farmer: 0 },
+          market: { geese: 0, corn: 1, farmer: 0 },
         },
         {
-          left: { geese: 1, corn: 0, farmer: 1 },
+          farm: { geese: 1, corn: 0, farmer: 1 },
           boat: { geese: 0, corn: 0, farmer: 0, direction: "none" },
-          right: { geese: 0, corn: 1, farmer: 0 },
+          market: { geese: 0, corn: 1, farmer: 0 },
         },
         {
-          left: { geese: 0, corn: 0, farmer: 0 },
+          farm: { geese: 0, corn: 0, farmer: 0 },
           boat: { geese: 1, corn: 0, farmer: 1, direction: "market" },
-          right: { geese: 0, corn: 1, farmer: 0 },
+          market: { geese: 0, corn: 1, farmer: 0 },
         },
         {
-          left: { geese: 0, corn: 0, farmer: 0 },
+          farm: { geese: 0, corn: 0, farmer: 0 },
           boat: { geese: 0, corn: 0, farmer: 0, direction: "none" },
-          right: { geese: 1, corn: 1, farmer: 1 },
+          market: { geese: 1, corn: 1, farmer: 1 },
         },
       ];
 
       expect(crossingPlan).toEqual(plan);
     });
+
+    it("when transporting two corn and one goose the successful plan is returned", () => {
+      const crossingPlan = instance.calculateCrossingPlanForCornAndGeese({
+        corn: 2,
+        geese: 1,
+      });
+
+      const plan = [
+        {
+          farm: { geese: 1, corn: 2, farmer: 1 },
+          boat: { geese: 0, corn: 0, farmer: 0, direction: "none" },
+          market: { geese: 0, corn: 0, farmer: 0 },
+        },
+        {
+          farm: { geese: 0, corn: 2, farmer: 0 },
+          boat: { geese: 1, corn: 0, farmer: 1, direction: "market" },
+          market: { geese: 0, corn: 0, farmer: 0 },
+        },
+        {
+          farm: { geese: 0, corn: 2, farmer: 0 },
+          boat: { geese: 0, corn: 0, farmer: 0, direction: "none" },
+          market: { geese: 1, corn: 0, farmer: 1 },
+        },
+        {
+          farm: { geese: 0, corn: 2, farmer: 0 },
+          boat: { geese: 0, corn: 0, farmer: 1, direction: "farm" },
+          market: { geese: 1, corn: 0, farmer: 0 },
+        },
+        {
+          farm: { geese: 0, corn: 2, farmer: 1 },
+          boat: { geese: 0, corn: 0, farmer: 0, direction: "none" },
+          market: { geese: 1, corn: 0, farmer: 0 },
+        },
+        {
+          farm: { geese: 0, corn: 1, farmer: 0 },
+          boat: { geese: 0, corn: 1, farmer: 1, direction: "market" },
+          market: { geese: 1, corn: 0, farmer: 0 },
+        },
+        {
+          farm: { geese: 0, corn: 1, farmer: 0 },
+          boat: { geese: 0, corn: 0, farmer: 0, direction: "none" },
+          market: { geese: 1, corn: 1, farmer: 1 },
+        },
+        {
+          farm: { geese: 0, corn: 1, farmer: 0 },
+          boat: { geese: 1, corn: 0, farmer: 1, direction: "farm" },
+          market: { geese: 0, corn: 1, farmer: 0 },
+        },
+        {
+          farm: { geese: 1, corn: 1, farmer: 1 },
+          boat: { geese: 0, corn: 0, farmer: 0, direction: "none" },
+          market: { geese: 0, corn: 1, farmer: 0 },
+        },
+        {
+          farm: { geese: 1, corn: 0, farmer: 0 },
+          boat: { geese: 0, corn: 1, farmer: 1, direction: "market" },
+          market: { geese: 0, corn: 1, farmer: 0 },
+        },
+        {
+          farm: { geese: 1, corn: 0, farmer: 0 },
+          boat: { geese: 0, corn: 0, farmer: 0, direction: "none" },
+          market: { geese: 0, corn: 2, farmer: 1 },
+        },
+        {
+          farm: { geese: 1, corn: 0, farmer: 0 },
+          boat: { geese: 0, corn: 0, farmer: 1, direction: "farm" },
+          market: { geese: 0, corn: 2, farmer: 0 },
+        },
+        {
+          farm: { geese: 1, corn: 0, farmer: 1 },
+          boat: { geese: 0, corn: 0, farmer: 0, direction: "none" },
+          market: { geese: 0, corn: 2, farmer: 0 },
+        },
+        {
+          farm: { geese: 0, corn: 0, farmer: 0 },
+          boat: { geese: 1, corn: 0, farmer: 1, direction: "market" },
+          market: { geese: 0, corn: 2, farmer: 0 },
+        },
+        {
+          farm: { geese: 0, corn: 0, farmer: 0 },
+          boat: { geese: 0, corn: 0, farmer: 0, direction: "none" },
+          market: { geese: 1, corn: 2, farmer: 1 },
+        },
+      ];
+
+      expect(crossingPlan).toEqual(plan);
+    });
+
+    it("when transporting one corn and two geese the successful plan is returned", () => {
+      const crossingPlan = instance.calculateCrossingPlanForCornAndGeese({
+        corn: 1,
+        geese: 2,
+      });
+
+      const plan = [
+        {
+          farm: { corn: 1, geese: 2, farmer: 1 },
+          boat: { corn: 0, geese: 0, farmer: 0, direction: "none" },
+          market: { corn: 0, geese: 0, farmer: 0 },
+        },
+        {
+          farm: { corn: 0, geese: 2, farmer: 0 },
+          boat: { corn: 1, geese: 0, farmer: 1, direction: "market" },
+          market: { corn: 0, geese: 0, farmer: 0 },
+        },
+        {
+          farm: { corn: 0, geese: 2, farmer: 0 },
+          boat: { corn: 0, geese: 0, farmer: 0, direction: "none" },
+          market: { corn: 1, geese: 0, farmer: 1 },
+        },
+        {
+          farm: { corn: 0, geese: 2, farmer: 0 },
+          boat: { corn: 0, geese: 0, farmer: 1, direction: "farm" },
+          market: { corn: 1, geese: 0, farmer: 0 },
+        },
+        {
+          farm: { corn: 0, geese: 2, farmer: 1 },
+          boat: { corn: 0, geese: 0, farmer: 0, direction: "none" },
+          market: { corn: 1, geese: 0, farmer: 0 },
+        },
+        {
+          farm: { corn: 0, geese: 1, farmer: 0 },
+          boat: { corn: 0, geese: 1, farmer: 1, direction: "market" },
+          market: { corn: 1, geese: 0, farmer: 0 },
+        },
+        {
+          farm: { corn: 0, geese: 1, farmer: 0 },
+          boat: { corn: 0, geese: 0, farmer: 0, direction: "none" },
+          market: { corn: 1, geese: 1, farmer: 1 },
+        },
+        {
+          farm: { corn: 0, geese: 1, farmer: 0 },
+          boat: { corn: 1, geese: 0, farmer: 1, direction: "farm" },
+          market: { corn: 0, geese: 1, farmer: 0 },
+        },
+        {
+          farm: { corn: 1, geese: 1, farmer: 1 },
+          boat: { corn: 0, geese: 0, farmer: 0, direction: "none" },
+          market: { corn: 0, geese: 1, farmer: 0 },
+        },
+        {
+          farm: { corn: 1, geese: 0, farmer: 0 },
+          boat: { corn: 0, geese: 1, farmer: 1, direction: "market" },
+          market: { corn: 0, geese: 1, farmer: 0 },
+        },
+        {
+          farm: { corn: 1, geese: 0, farmer: 0 },
+          boat: { corn: 0, geese: 0, farmer: 0, direction: "none" },
+          market: { corn: 0, geese: 2, farmer: 1 },
+        },
+        {
+          farm: { corn: 1, geese: 0, farmer: 0 },
+          boat: { corn: 0, geese: 0, farmer: 1, direction: "farm" },
+          market: { corn: 0, geese: 2, farmer: 0 },
+        },
+        {
+          farm: { corn: 1, geese: 0, farmer: 1 },
+          boat: { corn: 0, geese: 0, farmer: 0, direction: "none" },
+          market: { corn: 0, geese: 2, farmer: 0 },
+        },
+        {
+          farm: { corn: 0, geese: 0, farmer: 0 },
+          boat: { corn: 1, geese: 0, farmer: 1, direction: "market" },
+          market: { corn: 0, geese: 2, farmer: 0 },
+        },
+        {
+          farm: { corn: 0, geese: 0, farmer: 0 },
+          boat: { corn: 0, geese: 0, farmer: 0, direction: "none" },
+          market: { corn: 1, geese: 2, farmer: 1 },
+        },
+      ];
+
+      expect(crossingPlan).toEqual(plan);
+    });
+
 
     it("when transporting more than one corn and one goose an unsuccessful plan is returned", () => {
       const crossingPlan = instance.calculateCrossingPlanForCornAndGeese({
