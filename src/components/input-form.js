@@ -33,6 +33,7 @@ export const InputForm = ({ update }) => {
     </label>
     <input
       type="submit"
+      className="submit"
       value="Calculate plan"
     />
   </form>

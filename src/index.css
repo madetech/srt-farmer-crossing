@@ -45,6 +45,7 @@ label {
     background: #D6CE15;
     border-radius: 10px;
     color: #1F6521;
+    font-weight: bold;
 }
 
 .output-area p {
@@ -64,11 +65,12 @@ footer {
 .plan {
     display: table;
     width: 100%;
+    counter-reset: step;
 }
 
 .step {
     display: table-row;
-    margin-bottom: 10px;
+    counter-increment: step;
 }
 
 .river,
@@ -80,10 +82,20 @@ footer {
     padding: 10px;
     vertical-align: middle;
     text-align: left;
+    border-bottom: 10px solid #53900f;
+}
+
+.farm:first-child::before {
+    content: counter(step) ". ";
+    float:left;
+    font-size:40px;
+    font-weight: lighter;
+    color:#D6CE15;
 }
 
 .farm {
     text-align: right;
+    
 }
 
 .river {
@@ -96,7 +108,7 @@ footer {
     text-align: left;
 }
 
-.sprite {
+.sprite, .direction {
     font-size: 40px;
     line-height: 40px;
     display: inline-block;
