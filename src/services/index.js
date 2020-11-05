@@ -1,4 +1,4 @@
-class FarmerCrossing {
+export class FarmerCrossing {
   calculatePriceOfCrossing(itemsToTransport) {
     const parsedItemsToTransport = parseInt(itemsToTransport, 10);
     if (isNaN(parsedItemsToTransport)) {
@@ -73,10 +73,4 @@ class FarmerCrossing {
 
     return plan;
   }
-}
-
-if (typeof module !== "undefined" && module.exports) {
-  module.exports = FarmerCrossing;
-} else {
-  window.FarmerCrossing = FarmerCrossing;
 }
