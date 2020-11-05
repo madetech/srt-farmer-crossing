@@ -53,7 +53,7 @@ export class FarmerCrossing {
       return this.getPlanForTwoAndOne("geese", "corn");
     }
 
-    throw new Error("No plan found");
+    return [];
   }
 
   getInitialState(
