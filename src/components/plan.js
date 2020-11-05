@@ -64,7 +64,7 @@ export const Plan = ({ data: { corn, geese } }) => {
       currency: "GBP",
     });
 
-    return formatter.format(cost);
+    return formatter.format(cost / 100);
   }, [cost]);
 
   if (!plan) return null;
