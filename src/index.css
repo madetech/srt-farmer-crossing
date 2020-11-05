@@ -5,7 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
+body {
   font-family: Helvetica, Arial sans-serif;
   background-color: #53900f;
   color: white;
@@ -45,10 +47,11 @@ label {
   background: #d6ce15;
   border-radius: 10px;
   color: #1f6521;
+  font-weight: bold;
 }
 
-.price {
-  font-size: 3em;
+.output-area p {
+  font-size: 5em;
   color: white;
 }
 
@@ -64,11 +67,12 @@ footer {
 .plan {
   display: table;
   width: 100%;
+  counter-reset: step;
 }
 
 .step {
   display: table-row;
-  margin-bottom: 10px;
+  counter-increment: step;
 }
 
 .river,
@@ -80,6 +84,15 @@ footer {
   padding: 10px;
   vertical-align: middle;
   text-align: left;
+  border-bottom: 10px solid #53900f;
+}
+
+.farm:first-child::before {
+  content: counter(step) ". ";
+  float: left;
+  font-size: 40px;
+  font-weight: lighter;
+  color: #d6ce15;
 }
 
 .farm {
@@ -96,7 +109,8 @@ footer {
   text-align: left;
 }
 
-.sprite {
+.sprite,
+.direction {
   font-size: 40px;
   line-height: 40px;
   display: inline-block;

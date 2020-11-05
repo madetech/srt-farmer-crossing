@@ -36,7 +36,7 @@ export const InputForm = ({ update }) => {
           onChange={(e) => setGeese(e.target.value)}
         />
       </label>
-      <input type="submit" value="Calculate plan" />
+      <input type="submit" className="submit" value="Calculate plan" />
     </form>
   );
 };
