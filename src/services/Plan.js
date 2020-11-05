@@ -1,5 +1,10 @@
 export class Plan {
-  constructor(firstResourceName, firstResourceCount, secondResourceName, secondResourceCount) {
+  constructor(
+    firstResourceName,
+    firstResourceCount,
+    secondResourceName,
+    secondResourceCount
+  ) {
     this.firstResourceName = firstResourceName;
     this.firstResourceCount = firstResourceCount;
     this.secondResourceName = secondResourceName;
@@ -13,7 +18,7 @@ export class Plan {
   }
 
   getLastStep() {
-      return this.plan[this.plan.length - 1]
+    return this.plan[this.plan.length - 1];
   }
 
   getInitialState() {
@@ -29,19 +34,17 @@ export class Plan {
   }
 
   moveAcross(direction, resource) {
-    const start = (direction === 'farm') ? 'market' : 'farm';
-    const end = (start === 'market') ? 'farm' : 'market';
+    const start = direction === "farm" ? "market" : "farm";
+    const end = start === "market" ? "farm" : "market";
     const lastState = this.plan[this.plan.length - 1];
     const middleState = JSON.parse(JSON.stringify(lastState));
 
-    if (resource)
-      this.moveResourceIntoBoat(middleState, resource, start);
+    if (resource) this.moveResourceIntoBoat(middleState, resource, start);
     this.moveFarmerIntoBoat(middleState, start, direction);
 
     const endState = JSON.parse(JSON.stringify(middleState));
 
-    if (resource)
-      this.moveResourceOutOfBoat(endState, resource, end);
+    if (resource) this.moveResourceOutOfBoat(endState, resource, end);
     this.moveFarmerOutOfBoat(endState, end);
 
     this.plan.push(middleState, endState);

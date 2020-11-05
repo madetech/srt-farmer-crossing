@@ -539,8 +539,8 @@ describe("FarmerCrossing", () => {
           farm: { corn: 0, geese: 0, farmer: 0 },
           boat: { corn: 0, geese: 0, farmer: 0, direction: "none" },
           market: { corn: 4, geese: 0, farmer: 1 },
-        }
-      ]
+        },
+      ];
 
       expect(crossingPlan).toEqual(plan);
     });
