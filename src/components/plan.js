@@ -23,11 +23,11 @@ const PlanStep = ({ step }) => {
         {printSymbol(step.farm.geese, "🦆")} {printSymbol(step.farm.corn, "🌽")}
       </span>
       <span className="river">
-        {step.boat.direction === "farm" ? <span class="direction">←</span> : ""}{" "}
+        {step.boat.direction === "farm" ? <span className="direction">←</span> : ""}{" "}
         {printSymbol(step.boat.farmer, "👨‍🌾")}{" "}
         {printSymbol(step.boat.geese, "🦆")} {printSymbol(step.boat.corn, "🌽")}{" "}
         {step.boat.direction === "market" ? (
-          <span class="direction">→</span>
+          <span className="direction">→</span>
         ) : (
           ""
         )}
