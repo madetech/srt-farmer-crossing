@@ -31,5 +31,5 @@ export const Plan = ({ data: { corn, geese } }) => {
 
   if (!plan) return null;
   if (plan.length === 0) return <p className="error">Not possible!</p>;
-  return plan.map((step) => <PlanStep step={step} />);
+  return plan.map((step, i) => <PlanStep key={`${corn}-${geese}-${i}`} step={step} />);
 };

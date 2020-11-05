@@ -20,7 +20,19 @@ export class FarmerCrossing {
     return numberOfTrips * 25;
   }
 
-  calculateCrossingPlanForCornAndGeese({ corn, geese }) {
+  parseNumber(num) {
+    const parsed = parseInt(num, 10);
+    if (isNaN(num)) {
+      throw new Error("Invalid input");
+    }
+
+    return parsed
+  }
+
+  calculateCrossingPlanForCornAndGeese({ corn: rawCorn, geese: rawGeese }) {
+    const geese = this.parseNumber(rawGeese)
+    const corn = this.parseNumber(rawCorn)
+
     if (geese >= 2 && corn >= 2) {
       return [];
     }
