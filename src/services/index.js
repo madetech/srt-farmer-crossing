@@ -2,11 +2,11 @@ export class FarmerCrossing {
   calculatePriceOfCrossing(itemsToTransport) {
     const parsedItemsToTransport = parseInt(itemsToTransport, 10);
     if (isNaN(parsedItemsToTransport)) {
-      throw "Invalid input";
+      throw new Error("Invalid input");
     }
 
     if (parsedItemsToTransport < 0) {
-      throw "Invalid input";
+      throw new Error("Invalid input");
     }
 
     if (parsedItemsToTransport === 0) {
