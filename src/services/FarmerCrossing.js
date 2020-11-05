@@ -23,8 +23,6 @@ export class FarmerCrossing {
       return [];
     }
 
-    let plan = [];
-
     if (corn === 0 && geese === 0) {
       return this.getPlanForZeroAndZero();
     } else if (corn === 1 && geese === 0) {
