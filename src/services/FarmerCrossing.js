@@ -45,6 +45,8 @@ export class FarmerCrossing {
       return this.getPlanForOneAndZero("geese", "corn");
     } else if (corn === 0 && geese === 2) {
       return this.getPlanForTwoAndZero("geese", "corn");
+    } else if (corn === 2 && geese === 0) {
+      return this.getPlanForTwoAndZero("corn", "geese");
     } else if (corn === 1 && geese === 1) {
       return this.getPlanForOneAndOne();
     } else if (corn === 2 && geese === 1) {
