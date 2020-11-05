@@ -12,6 +12,10 @@ export class Plan {
     return this.plan;
   }
 
+  getLastStep() {
+      return this.plan[this.plan.length - 1]
+  }
+
   getInitialState() {
     return {
       farm: {

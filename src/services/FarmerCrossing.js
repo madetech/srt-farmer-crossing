@@ -53,6 +53,10 @@ export class FarmerCrossing {
       return this.getPlanForTwoAndOne("corn", "geese");
     } else if (corn === 1 && geese === 2) {
       return this.getPlanForTwoAndOne("geese", "corn");
+    } else if (corn === 0 && geese > 2) {
+      return this.getPlanForZeroAndMore("corn", "geese")
+    } else if (corn > 2 && geese === 0) {
+      return this.getPlanForZeroAndMore("geese", "corn", corn)
     }
 
     return [];
@@ -118,5 +122,17 @@ export class FarmerCrossing {
     plan.moveAcross("market", secondResourceName);
 
     return plan.getState();
+  }
+
+  getPlanForZeroAndMore(firstResourceName, secondResourceName, secondResourceCount) {
+    const plan = new Plan(firstResourceName, 0, secondResourceName, secondResourceCount);
+    
+    while (plan.getLastStep().farm[secondResourceName] > 1) {
+      plan.moveAcross("market", secondResourceName)
+      plan.moveAcross("farm")
+    }
+
+    plan.moveAcross("market", secondResourceName)
+    return plan.getState()
   }
 }
