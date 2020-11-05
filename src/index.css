@@ -65,11 +65,28 @@ body {
         width:100%;
       }
 
+  .step {
+    display:block;
+    margin-bottom: 10px;
+  }
+
+  .river, .farm, .market {
+        display: inline-block;
+        min-width: 40px;
+        margin: 0 20px;
+        height:40px;
+        padding:10px;
+        vertical-align:middle;
+
+      }
+      
 
 	.river {
 		background-color: blue;
-		display: inline-block;
-		min-width: 20px;
-		height: 2em;
-		margin: 0 20px;
-	}
+  }
+  
+  .sprite {
+    display:inline-block;
+    font-size:40px;
+    line-height:40px;
+  }
