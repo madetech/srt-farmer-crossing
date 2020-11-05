@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div>
-      <h1>👩‍🌾 - Farmer Crossing - 👨‍🌾</h1>
+      <h1>👩‍🌾 Farmer Crossing 👨‍🌾</h1>
       <InputForm update={setData} />
       <div className="output-area">{data && <Plan data={data} />}</div>
     </div>

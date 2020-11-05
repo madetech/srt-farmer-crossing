@@ -1,21 +1,12 @@
 import { Plan } from "./Plan";
 
 export class FarmerCrossing {
-  calculatePriceOfCrossing(itemsToTransport) {
-    const parsedItemsToTransport = parseInt(itemsToTransport, 10);
-    if (isNaN(parsedItemsToTransport)) {
-      throw new Error("Invalid input");
+  calculatePriceOfCrossing(numberOfSteps) {
+    if (numberOfSteps === 0) {
+      return 0;
     }
 
-    if (parsedItemsToTransport < 0) {
-      throw new Error("Invalid input");
-    }
-
-    if (parsedItemsToTransport === 0) {
-      return 25;
-    }
-
-    const numberOfTrips = parsedItemsToTransport * 2 - 1;
+    const numberOfTrips = (numberOfSteps - 1) / 2;
 
     return numberOfTrips * 25;
   }
